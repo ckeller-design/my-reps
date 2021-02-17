@@ -44,11 +44,11 @@ function addressSearch() {
     var results_level_set = [];
     // set levels from checkboxes
     if ($('#show_local_results').is(':checked')) {
-        show_local = true;
+        show_local = false;
         results_level_set.push('local');
     }
     if ($('#show_county_results').is(':checked')) {
-        show_county = true;
+        show_county = false;
         results_level_set.push('county');
     }
     if ($('#show_state_results').is(':checked')) {
@@ -56,7 +56,7 @@ function addressSearch() {
         results_level_set.push('state');
     }
     if ($('#show_federal_results').is(':checked')) {
-        show_federal = true;
+        show_federal = false;
         results_level_set.push('federal');
     }
 
