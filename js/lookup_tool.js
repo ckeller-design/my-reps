@@ -1,5 +1,5 @@
 var geocoder = new google.maps.Geocoder;
-var INFO_API = 'https://www.googleapis.com/civicinfo/v2/representatives?roles=legislatorUpperBody&roles=legislatorLowerBody';
+var INFO_API = 'https://www.googleapis.com/civicinfo/v2/representatives;
 
 // parsing out division IDs
 var federal_pattern = "ocd-division/country:us";
