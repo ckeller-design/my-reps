@@ -1,11 +1,4 @@
-@font-face {
-    font-family: 'league_gothicitalic';
-    src: url('leaguegothic-italic-webfont.woff2') format('woff2'),
-         url('leaguegothic-italic-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
+@import url(https://fonts.googleapis.com/css?family=Oswald:400,400italic,700);
 
 body {
     font-size: 16px;
@@ -13,7 +6,7 @@ body {
 }
 
 h1, h2, h3, h4, h5 {
-    font-family: 'league_gothicitalic', serif !important;
+    font-family: 'Oswald', serif;
     font-weight: normal;
 }
 
