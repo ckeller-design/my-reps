@@ -109,7 +109,7 @@ function addressSearch() {
                     $.each(division.officeIndices, function(i, office){
                         var office_name = offices[office];
 
-                        $.each(offices[office]['officialIndices'], function(i, official){
+                        $.each(offices[office]['officialIndices']['roles'], function(i, official){
                             var info = {
                                 'person': null,
                                 'office': office_name,
