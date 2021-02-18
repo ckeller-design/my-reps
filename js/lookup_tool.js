@@ -2,9 +2,15 @@ var geocoder = new google.maps.Geocoder;
 var INFO_API = 'https://www.googleapis.com/civicinfo/v2/representatives';
 
 // parsing out division IDs
-var state_pattern = /ocd-division\/country:us\/state:(\D{2})\/(sldl:|sldu:)/;
+var federal_pattern = "ocd-division/country:us";
+var state_pattern = /ocd-division\/country:us\/state:(\D{2}$)/;
+var cd_pattern = /ocd-division\/country:us\/state:(\D{2})\/cd:/;
+var sl_pattern = /ocd-division\/country:us\/state:(\D{2})\/(sldl:|sldu:)/;
+var county_pattern = /ocd-division\/country:us\/state:\D{2}\/county:\D+/;
+var local_pattern = /ocd-division\/country:us\/state:\D{2}\/place:\D+/;
+var district_pattern = /ocd-division\/country:us\/district:\D+/;
 
-var federal_offices = ['United States Senate', 'United States House of Representatives', 'U.S. Senator', 'U.S. Representative']
+var federal_offices = ['United States Senate', 'United States House of Representatives']
 
 var social_icon_lookup = {
     'YouTube': 'youtube',
@@ -38,11 +44,11 @@ function addressSearch() {
     var results_level_set = [];
     // set levels from checkboxes
     if ($('#show_local_results').is(':checked')) {
-        show_local = false;
+        show_local = true;
         results_level_set.push('local');
     }
     if ($('#show_county_results').is(':checked')) {
-        show_county = false;
+        show_county = true;
         results_level_set.push('county');
     }
     if ($('#show_state_results').is(':checked')) {
@@ -50,19 +56,17 @@ function addressSearch() {
         results_level_set.push('state');
     }
     if ($('#show_federal_results').is(':checked')) {
-        show_federal = false;
+        show_federal = true;
         results_level_set.push('federal');
     }
 
     $.address.parameter('results_level', results_level_set);
 
-    if (DEBUG) {
-        console.log('doin search')
-        console.log('local: ' + show_local)
-        console.log('county: ' + show_county)
-        console.log('state: ' + show_state)
-        console.log('federal: ' + show_federal)
-    }
+    // console.log('doin search')
+    // console.log('local: ' + show_local)
+    // console.log('county: ' + show_county)
+    // console.log('state: ' + show_state)
+    // console.log('federal: ' + show_federal)
     var address = $('#address').val();
     $.address.parameter('address', encodeURIComponent(address));
 
@@ -88,10 +92,8 @@ function addressSearch() {
         var county_people = [];
         var local_people = [];
 
-        if (DEBUG) {
-            console.log(data);
-            console.log(divisions);
-        }
+        // console.log(data);
+        // console.log(divisions);
 
         if (divisions === undefined) {
             $("#no-response-container").show();
@@ -101,7 +103,7 @@ function addressSearch() {
             setFoundDivisions(divisions);
 
             $.each(divisions, function(division_id, division){
-                if (DEBUG) console.log(division.name);
+                // console.log(division.name);
                 if (typeof division.officeIndices !== 'undefined'){
                     
                     $.each(division.officeIndices, function(i, office){
@@ -120,7 +122,7 @@ function addressSearch() {
                                 'pseudo_id': pseudo_id
                             };
 
-                            if (DEBUG) console.log(officials[official])
+                            // console.log(officials[official])
                             var person = officials[official];
                             info['person'] = person;
 
@@ -169,6 +171,8 @@ function addressSearch() {
                     });
                 }
             });
+
+            $("#address-image").html("<img class='img-responsive img-thumbnail' src='https://maps.googleapis.com/maps/api/staticmap?size=600x200&maptype=roadmap&markers=" + encodeURIComponent(address) + "' alt='" + address + "' title='" + address + "' />");
 
             var template = new EJS({'text': $('#tableGuts').html()});
             
@@ -254,7 +258,7 @@ function findMe() {
             var accuracy = position.coords.accuracy;
             var coords = new google.maps.LatLng(latitude, longitude);
 
-            if (DEBUG) console.log(coords);
+            // console.log(coords);
 
             geocoder.geocode({
                 'location': coords
@@ -286,7 +290,7 @@ function setFoundDivisions(divisions){
     $("#county-nav").hide();
     $("#local-nav").hide();
 
-    if (DEBUG) console.log(divisions)
+    // console.log(divisions)
     $.each(divisions, function(division_id, division){
         if (state_pattern.test(division_id)) {
             selected_state = division.name;
