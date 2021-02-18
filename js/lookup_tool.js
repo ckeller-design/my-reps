@@ -1,7 +1,6 @@
 var geocoder = new google.maps.Geocoder;
 var INFO_API = 'https://www.googleapis.com/civicinfo/v2/representatives';
 
-
 // parsing out division IDs
 var federal_pattern = "ocd-division/country:us";
 var state_pattern = /ocd-division\/country:us\/state:(\D{2})\/(sldl:|sldu:)/;
@@ -38,7 +37,7 @@ function addressSearch() {
 
     var show_local   = false;
     var show_county  = false;
-    var show_state   = false;
+    var show_state   = true;
     var show_federal = false;
 
     var results_level_set = [];
