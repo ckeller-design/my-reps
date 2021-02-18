@@ -84,7 +84,7 @@ function addressSearch() {
         pseudo_id = 1;
 
         var federal_people = [];
-        var state_people = [offices.roles{'legislatorLowerBody', 'legislatorUpperBody'];
+        var state_people = [offices.roles['legislatorLowerBody', 'legislatorUpperBody']];
         var county_people = [];
         var local_people = [];
 
