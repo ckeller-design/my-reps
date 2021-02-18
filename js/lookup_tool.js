@@ -11,6 +11,7 @@ var local_pattern = /ocd-division\/country:us\/state:\D{2}\/place:\D+/;
 var district_pattern = /ocd-division\/country:us\/district:\D+/;
 
 var federal_offices = ['United States Senate', 'United States House of Representatives', 'U.S. Senator', 'U.S. Representative']
+var state_offices = ['State Senator', 'State Representative']
 
 var social_icon_lookup = {
     'YouTube': 'youtube',
@@ -157,7 +158,7 @@ function addressSearch() {
                             if(checkFederal(division_id, office_name)) {
                                 info['jurisdiction'] = 'Federal Government';
                                 federal_people.push(info);
-                            } else if (checkState(division_id)) {
+                            } else if (checkState(division_id, office_name)) {
                                 info['jurisdiction'] = selected_state;
                                 state_people.push(info);
                             } else if (checkCounty(division_id)){
@@ -321,9 +322,10 @@ function checkFederal(division_id, office_name) {
         return false; 
 }
 
-function checkState(division_id){
+function checkState(division_id, office_name){
     if( state_pattern.test(division_id) ||
-        sl_pattern.test(division_id))
+        sl_pattern.test(division_id) ||
+        state_offices.indexOf(office_name.name) >= 0)
         return true;
     else
         return false; 
