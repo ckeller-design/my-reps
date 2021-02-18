@@ -39,7 +39,8 @@ function addressSearch() {
 
     var show_local   = false;
     var show_county  = false;
-    var show_state   = true;
+    var show_state   = false;
+    var show_sl = true;
     var show_federal = false;
 
     var results_level_set = [];
