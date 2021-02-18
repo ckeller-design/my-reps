@@ -1,4 +1,11 @@
-@import url(https://fonts.googleapis.com/css?family=Bitter:400,400italic,700);
+@font-face {
+    font-family: 'league_gothicitalic';
+    src: url('leaguegothic-italic-webfont.woff2') format('woff2'),
+         url('leaguegothic-italic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
 
 body {
     font-size: 16px;
@@ -6,7 +13,7 @@ body {
 }
 
 h1, h2, h3, h4, h5 {
-    font-family: 'Bitter', serif;
+    font-family: 'league_gothicitalic', serif;
     font-weight: bold;
 }
 
