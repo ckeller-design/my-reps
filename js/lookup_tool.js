@@ -3,9 +3,8 @@ var INFO_API = 'https://www.googleapis.com/civicinfo/v2/representatives';
 
 // parsing out division IDs
 var federal_pattern = "ocd-division/country:us";
-var state_pattern = /ocd-division\/country:us\/state:(\D{2}$)/;
+var state_pattern = /ocd-division\/country:us\/state:(\D{2})\/(sldl:|sldu:)/;
 var cd_pattern = /ocd-division\/country:us\/state:(\D{2})\/cd:/;
-var sl_pattern = /ocd-division\/country:us\/state:(\D{2})\/(sldl:|sldu:)/;
 var county_pattern = /ocd-division\/country:us\/state:\D{2}\/county:\D+/;
 var local_pattern = /ocd-division\/country:us\/state:\D{2}\/place:\D+/;
 var district_pattern = /ocd-division\/country:us\/district:\D+/;
