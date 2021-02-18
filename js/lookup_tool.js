@@ -73,7 +73,7 @@ function addressSearch() {
     $.when($.getJSON(INFO_API, params)).then(function(data){
         var divisions = data['divisions'];
         var officials = data['officials'];
-        var offices = data['offices'];
+        var offices = data['offices[].roles[legislatorUpperBody, legislatorLowerBody]'];
 
         $('table tbody').empty();
 
