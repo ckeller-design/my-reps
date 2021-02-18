@@ -263,9 +263,9 @@ layout: default
             <% if (info.emails){ %>
                 <% $.each(info.emails, function(i, email){ %>
                     <% if ((i + 1) < info.emails.length){ %>
-                        <i class='fa fa-fw fa-envelope'></i> <a href='mailto:<%= email %>?subject=Vote NO on [insert Bill Number Here]&body=Hello, </br> My name is [insert name here] and I'm writing today to ask you to vote no on [insert bill number here]. The bill would harm LGBTQ youth.'><%= email %></a><br />
+                        <i class='fa fa-fw fa-envelope'></i> <a href='mailto:<%= email %>?subject=Vote NO on insert Bill Number Here&body=Hello, </br> My name is insert name here and I'm writing today to ask you to vote no on insert bill number here. The bill would harm LGBTQ youth.'><%= email %></a><br />
                     <% } else { %>
-                        <i class='fa fa-fw fa-envelope'></i> <a href='mailto:<%= email %>?subject=Vote NO on [insert Bill Number Here]&body=Hello, </br> My name is [insert name here] and I'm writing today to ask you to vote no on [insert bill number here]. The bill would harm LGBTQ youth.'><%= email %></a>
+                        <i class='fa fa-fw fa-envelope'></i> <a href='mailto:<%= email %>?subject=Vote NO on insert Bill Number Here&body=Hello, </br> My name is insert name here and I'm writing today to ask you to vote no on insert bill number here. The bill would harm LGBTQ youth.'><%= email %></a>
                     <% } %>
                 <% }) %>
             <% } %>
