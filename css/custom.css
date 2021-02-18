@@ -13,8 +13,8 @@ body {
 }
 
 h1, h2, h3, h4, h5 {
-    font-family: 'league_gothicitalic', serif;
-    font-weight: bold;
+    font-family: 'league_gothicitalic', serif !important;
+    font-weight: normal;
 }
 
 h1 {
