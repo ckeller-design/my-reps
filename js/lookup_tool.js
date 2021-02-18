@@ -294,7 +294,7 @@ function setFoundDivisions(divisions){
 
     if (DEBUG) console.log(divisions)
     $.each(divisions, function(division_id, division){
-        if (sl_pattern.test(division_id)) {
+        if (state_pattern.test(division_id)) {
             selected_state = division.name;
             $("[id^=state-name]").html(selected_state);
             $("#state-nav").show();
@@ -322,8 +322,8 @@ function checkFederal(division_id, office_name) {
 }
 
 function checkState(division_id){
-    if( sl_pattern.test(division_id))
-        state_offices.indexOf(office_name.name) >= 0)
+ if( state_pattern.test(division_id) ||
+        sl_pattern.test(division_id))
         return true;
     else
         return false; 
