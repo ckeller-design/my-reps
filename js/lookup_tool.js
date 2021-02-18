@@ -294,7 +294,7 @@ function setFoundDivisions(divisions){
 
     if (DEBUG) console.log(divisions)
     $.each(divisions, function(division_id, division){
-        if (state_pattern.test(division_id)) {
+        if (sl_pattern.test(division_id)) {
             selected_state = division.name;
             $("[id^=state-name]").html(selected_state);
             $("#state-nav").show();
