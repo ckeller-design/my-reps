@@ -263,9 +263,11 @@ layout: default
             <% if (info.emails){ %>
                 <% $.each(info.emails, function(i, email){ %>
                     <% if ((i + 1) < info.emails.length){ %>
-                        <i class='fa fa-fw fa-envelope'></i> <a href='mailto:<%= email %>?subject=Vote NO on INSERT BILL NUMBER HERE&body=Hello, %0D%0A My name is INSERT YOUR NAME HERE and I am writing today to ask you to vote no on INSERT BILL NUMBER HERE. We will finish this sample email later.'><%= email %></a><br />
+                        <i class='fa fa-fw fa-envelope'></i> <a href='mailto:<%= email %>?subject=Vote NO on INSERT BILL NUMBER HERE&body=Hi [REP/SEN NAME], %0D%0A My name is [NAME] and I’m a constituent from [CITY, ZIP].%0D%0A
+I’m writing to urge you to vote NO on [BILL NUMBER]. Trans youth and the LGBTQ community face significant violence and discrimination in everyday interactions. Bills targeting trans youth must not pass. All youth deserve to receive the same protections and opportunities as their peers. %0D%0A Thank you for your time and attention.%0D%0A [YOUR NAME]'><%= email %></a><br />
                     <% } else { %>
-                        <i class='fa fa-fw fa-envelope'></i> <a href='mailto:<%= email %>?subject=Vote NO on iNSERT BILL NUMBER HERE&body=Hello, %0D%0A My name is INSERT YOUR NAME HERE and I am writing today to ask you to vote no on INSERT BILL NUMBER HERE. We will finish this sample email later.'><%= email %></a>
+                        <i class='fa fa-fw fa-envelope'></i> <a href='mailto:<%= email %>?subject=Vote NO on iNSERT BILL NUMBER HERE&body=Hi [REP/SEN NAME], %0D%0A My name is [NAME] and I’m a constituent from [CITY, ZIP].%0D%0A
+I’m writing to urge you to vote NO on [BILL NUMBER]. Trans youth and the LGBTQ community face significant violence and discrimination in everyday interactions. Bills targeting trans youth must not pass. All youth deserve to receive the same protections and opportunities as their peers. %0D%0A Thank you for your time and attention.%0D%0A [YOUR NAME]'><%= email %></a>
                     <% } %>
                 <% }) %>
             <% } %>
